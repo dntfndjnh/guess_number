@@ -19,7 +19,7 @@ userInput.addEventListener("focus",function(){userInput.value=""});
 console.log(playButton);
 get_num();
 
-if(chances==0){
+if(chances<=0){
     playButton.disabled=true;
 }
 
@@ -98,7 +98,7 @@ function play(){
 function re(){
    
  get_num();
- if(chances==0){
+ if(chances<=0){
     playButton.disabled=true;
 }
     resultArea.textContent="게임을 시작합니다"
