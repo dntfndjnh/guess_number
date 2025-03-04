@@ -101,7 +101,7 @@ function play(){
 function re(){
    
  get_num();
- if(chances<=0){
+ if(chances==null){
     playButton.disabled=true;
 }
 
