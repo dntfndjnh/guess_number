@@ -19,6 +19,10 @@ userInput.addEventListener("focus",function(){userInput.value=""});
 console.log(playButton);
 get_num();
 
+if(chances==0){
+    playButton.disabled=true;
+}
+
 function get_num(){
 while (true){
 chances=prompt("몇 번 시도할까요? (1~100 사이의 숫자를 입력해주세요)");
