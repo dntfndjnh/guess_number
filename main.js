@@ -71,6 +71,9 @@ function play(){
     history.push(userValue);
     console.log(history);
     go++;
+    if((chances-go)<=0){
+        playButton.disabled=true;
+    }
     if (userValue<comNum){
         resultArea.textContent="UP";
         chanceInfo.textContent="남은횟수: "+(chances-go);
@@ -101,9 +104,7 @@ function re(){
  if(chances<=0){
     playButton.disabled=true;
 }
-if((chances-go)<=0){
-    playButton.disabled=true;
-}
+
     resultArea.textContent="게임을 시작합니다"
     go=0;
     chanceInfo.textContent="남은횟수: "+(chances-go);
