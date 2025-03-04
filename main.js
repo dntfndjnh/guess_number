@@ -17,14 +17,25 @@ resetButton.addEventListener("click",re);
 userInput.addEventListener("focus",function(){userInput.value=""});
 
 console.log(playButton);
+get_num();
 
+function get_num(){
 while (true){
-chances=Number(prompt("몇 번 시도할까요? (1~100 사이의 숫자를 입력해주세요)",100));
-if ((chances>0)&&(chances<=200))
+chances=prompt("몇 번 시도할까요? (1~100 사이의 숫자를 입력해주세요)");
+if (chances==null)
+{
+    playButton.disabled=true;
+    break;
+}
+chances=Number(chances);
+if ((chances>0)&&(chances<=100))
 {
     break;
 }
 }
+}
+
+
 function mkRanNum(){
     comNum=Math.floor(Math.random()*100)+1;
     console.log("랜덤값: ", comNum);
@@ -82,16 +93,11 @@ function play(){
 
 function re(){
    
-    while (true){
-        chances=Number(prompt("몇 번 시도할까요? (1~100 사이의 숫자를 입력해주세요)",100));
-        if ((chances>0)&&(chances<=200))
-        {
-            break;
-        }
-        }
+ get_num();
     resultArea.textContent="게임을 시작합니다"
     go=0;
     chanceInfo.textContent="남은횟수: "+(chances-go);
+    history.length=0
     playButton.disabled=false;
     userInput.value="";
     mkRanNum();
