@@ -98,6 +98,9 @@ function play(){
 function re(){
    
  get_num();
+ if(chances==0){
+    playButton.disabled=true;
+}
     resultArea.textContent="게임을 시작합니다"
     go=0;
     chanceInfo.textContent="남은횟수: "+(chances-go);
