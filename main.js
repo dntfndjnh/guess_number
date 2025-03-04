@@ -109,7 +109,9 @@ function re(){
     go=0;
     chanceInfo.textContent="남은횟수: "+(chances-go);
     history.length=0
+    if(chances!=null){
     playButton.disabled=false;
+    }
     userInput.value="";
     mkRanNum();
 
