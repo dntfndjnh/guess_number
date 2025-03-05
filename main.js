@@ -121,6 +121,7 @@ function play(){
         return 0;
     }
     history.push(userValue);
+    history.sort();
     console.log(history);
     go++;
     if((chances-go)<=0){
@@ -158,7 +159,7 @@ function re(){
  get_num();
  if(chances==null){
     playButton.disabled=true;
-}
+    }
 
     resultArea.textContent="게임을 시작합니다"
     go=0;
@@ -171,7 +172,8 @@ function re(){
     }
     userInput.value="";
     mkRanNum();
-
+    nummin=1;
+    nummax=100;
 
 }
 
