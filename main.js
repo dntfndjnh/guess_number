@@ -10,7 +10,8 @@ let current_range = document.getElementById("num-range");
 let chances=5;
 let go=0;
 let history=[]
-
+let nummin=1;
+let nummax=100;
 
 
 
@@ -30,8 +31,7 @@ function solve_percent()
 {   
 
     history.sort();
-    nummin=1;
-    nummax=100;
+    
     per=0;
     //history 배열에 2개 이상 값이 들어와있을 때
     if(history.length>1){
