@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#result-area {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #d9534f;
+    margin: 10px 0;
+}
+
+#chance-info {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff5722;
+    margin-bottom: 15px;
+}
+
+input[type="number"] {
+    padding: 12px;
+    font-size: 1.2em;
+    width: 80%;
+    max-width: 300px;
+    margin: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+input[type="number"]:focus {
+    border-color: #5bc0de;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 200px;
+}
+
+#play-button {
+    background-color: #5cb85c;
+    color: white;
+}
+
+#play-button:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}
+
+#play-button:disabled {
+    background-color: #a5d6a7;
+    color: #eee;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#reset-button {
+    background-color: #d9534f;
+    color: white;
+}
+
+#reset-button:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
+
+#percent, #num-range {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    #result-area, #chance-info {
+        font-size: 1.2em;
+    }
+    button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}

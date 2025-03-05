@@ -5,6 +5,8 @@ let userInput = document.getElementById("user-input");
 let resultArea = document.getElementById("result-area");
 let resetButton = document.getElementById("reset-button");
 let chanceInfo = document.getElementById("chance-info");
+let current_percent = document.getElementById("percent");
+let current_range = document.getElementById("num-range");
 let chances=5;
 let go=0;
 let history=[]
@@ -23,6 +25,56 @@ if(chances<=0){
     playButton.disabled=true;
 }
 
+
+function solve_percent()
+{   
+
+    history.sort();
+    nummim=1;
+    nummax=100;
+    per=0;
+    //history 배열에 2개 이상 값이 들어와있을 때
+    if(history.length>1){
+        //배열 원소 개수 만큼 반복문
+        for(i=1;i<history.length;i++){
+            //배열에 들어있는
+            if (comNum<history[i])
+            {
+                if(history[i-1]<comNum){
+                    nummin=history[i-1];
+                    nummin++;
+                    nummax=history[i];
+                    nummax--;
+                }
+                else{
+                    nummax=history[i-1];
+                    nummax--;
+                }
+            }
+        }
+        if(history[history.length-1]<comNum)
+        {
+            nummin=history[history.length-1]
+        }
+    }
+    //배열에 입력된게 1개일 때
+    else{
+        if(comNum<history[0])
+        {
+            nummax=history[0];
+            nummax--
+        }
+        else{
+            nummin=history[0];
+            nummin++
+        }
+    }
+    per=(1/(nummax-nummin+1)*100).toFixed(2);
+    current_range.textContent="정답의 범위:"+(nummin)+"~"+(nummax);
+    current_percent.textContent="현재 맞출확률:"+(per)+"%";
+    
+}
+
 function get_num(){
 while (true){
 chances=prompt("몇 번 시도할까요? (1~100 사이의 숫자를 입력해주세요)");
@@ -31,7 +83,7 @@ if (chances==null)
     playButton.disabled=true;
     break;
 }
-chances=Number(chances);
+chances=Math.round(Number(chances));
 if ((chances>0)&&(chances<=100))
 {
     break;
@@ -49,7 +101,7 @@ chanceInfo.textContent="남은횟수: "+(chances-go);
 function play(){
     
     console.log("남은 횟수",chances-go);
-    let userValue=userInput.value;
+    let userValue=Math.round(userInput.value);
 
     if((userValue>100)||(userValue<1))
     {
@@ -88,6 +140,7 @@ function play(){
         chanceInfo.textContent="남은횟수: "+(chances-go);
         console.log("맟췄습니다");
         playButton.disabled=true;
+        return 0;
     }
     if (go== chances)
         {
@@ -95,6 +148,8 @@ function play(){
             resultArea.textContent="실패...";
         }
     
+        
+        solve_percent();
     
 }
 
@@ -108,6 +163,8 @@ function re(){
     resultArea.textContent="게임을 시작합니다"
     go=0;
     chanceInfo.textContent="남은횟수: "+(chances-go);
+    current_range.textContent="정답의 범위:1~100";
+    current_percent.textContent="현재 맞출확률:1%";
     history.length=0
     if(chances!=null){
     playButton.disabled=false;
