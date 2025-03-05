@@ -30,7 +30,7 @@ function solve_percent()
 {   
 
     history.sort();
-    nummim=1;
+    nummin=1;
     nummax=100;
     per=0;
     //history 배열에 2개 이상 값이 들어와있을 때
